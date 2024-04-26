@@ -1,0 +1,71 @@
+<!-- 页脚 - 参考 Flarum 中文社区 -->
+<footer>
+    <div class="site-footer">
+        <div style="color: rgb(137, 137, 140);font-size:0.9em;" class="footer-container rm-link-color">
+            <p>
+                <!-- 加载时间 -->
+                <script>
+                    var start_time = new Date();
+                    var end_time = "";
+                    var loadt = setInterval(function () {
+                        if (document.readyState == "complete") {
+                            showLoadTime();
+                        }
+                    }, 500)
+
+                    function showLoadTime() {
+                        end_time = new Date();
+                        loadtime_span.innerHTML = "T " + (end_time.getTime() - start_time.getTime()) + " ms";
+                        clearInterval(loadt);
+                    }
+                </script>
+                <!-- IP -->
+                                <span id="ip_span" align=center></span>
+                <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+                <script type="text/javascript">
+                    ip_span.innerHTML = returnCitySN["cname"] + " " + returnCitySN["cip"];
+                </script>
+
+                <span class="mx-2">|</span>
+
+                <span id="loadtime_span">T</span>
+
+                <span class="mx-2">|</span>
+
+                <a id="stats" href="https://status.bridge18.rr.nu" target="_blank"></a>
+
+            </p>
+            <p>
+                <a id="prot_span" href="#"></a>
+
+                <span class="mx-2">|</span>
+                <a id="fedi_span" href="https://mxin.fun/@bridgeeighteen"></a>
+
+                <span class="mx-2">|</span>
+
+                <span id="ver_span"></span>
+                                <p id="right_span"></p>
+            </p>
+            <!-- 声明 -->
+            <script type="text/javascript">
+                var site_version = "1.1.0";
+                var lang = document.getElementsByTagName("html");
+                var userLang = lang[0].getAttribute("lang");
+                if (userLang.includes("zh")) {
+                                        stats.innerHTML = "状态";
+                    prot_span.innerHTML = "社区规范";
+                    fedi_span.innerHTML = "联邦宇宙官宣账号";
+                    ver_span.innerHTML = "版本 " + site_version;
+                    right_span.innerHTML = "本网站是 Favocas 的旗下网站。<a href=\"http://favocas.rr.nu\"><i class=\"fas fa-info-circle\"></i> 了解 Favocas</a>";
+                }
+                else {
+                                        stats.innerHTML = "Status";
+                    prot_span.innerHTML = "Protocol";
+                    fedi_span.innerHTML = "Fediverse Official Account";
+                    ver_span.innerHTML = "Version " + site_version;
+                   right_span.innerHTML = "This site is a part of the Favocas Organization. Learn more about <a href=\"http://favocas.rr.nu\"><i class=\"fas fa-info-circle\"></i> the organization</a>.";
+                }
+            </script>
+        </div>
+    </div>
+</footer>
